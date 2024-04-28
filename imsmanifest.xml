@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.6 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-9CB0574D4C6B93BDF4C82AB114B8E2D5" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+ <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+</metadata>
+  <organizations default="ORG-2414C1B6986008AB48D421E9B6661D17">
+    <organization identifier="ORG-2414C1B6986008AB48D421E9B6661D17" structure="hierarchical">
+      <title>Honeywell</title>
+      <item identifier="ITEM-AE16B7AAA72D56E5723A425E353C582E" isvisible="true" identifierref="RES-48E5618D65ECFB3C205D1909B85725B1">
+        <title>Flipbook</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-48E5618D65ECFB3C205D1909B85725B1" type="webcontent" href="index.html" adlcp:scormtype="sco">
+      <file href="index.html" />
+      <file href="css/menuCSS/component.css" />
+      <file href="pics/favicon.ico" />
+    </resource>
+  </resources>
+</manifest>
+

@@ -1,0 +1,426 @@
+@font-face {
+  font-family: "HoneywellSansWeb-Medium";
+ 	src:    url('../fonts/HoneywellSansWeb-Medium.eot');
+    src:    url('../fonts/HoneywellSansWeb-Medium.eot?#iefix') format('embedded-opentype'),
+            
+            url('../fonts/HoneywellSansWeb-Medium.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "HoneywellSansWeb-Bold";
+  src:    url('../fonts/HoneywellSansWeb-Bold.eot');
+    src:    url('../fonts/HoneywellSansWeb-Bold.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/HoneywellSansWeb-Bold.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "HoneywellSansWeb-Book";
+  src:    url('../fonts/HoneywellSansWeb-Book.eot');
+    src:    url('../fonts/HoneywellSansWeb-Book.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/HoneywellSansWeb-Book.woff') format('woff'),
+            url('../fonts/HoneywellSansWeb-Book.woff2') format('woff2'),
+            url('../fonts/HoneywellSansWeb-Book.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src:    url('../fonts/glyphicons-halflings-regular.eot');
+    src:    url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
+            url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+            url('../fonts/glyphicons-halflings-regular.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif, "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 background: #ddd;
+}
+
+
+html {
+scrollbar-face-color:rgba(102, 102, 102, 1);
+scrollbar-arrow-color:rgba(0, 0, 0, 1);
+scrollbar-track-color:rgba(171, 171, 171, 1);
+
+}
+
+
+body{
+	margin:0;
+	padding:0;
+	padding: 0px;
+	overflow:hidden;
+	/*background-image:url(../pics/main_bg.jpg);
+	background-repeat:no-repeat;
+	background: #f1f9fe;        */
+  	background: #ffffff;        
+	width:100%;
+	height:100%;
+	font-family:HoneywellSansWeb-Medium, sans-serif;
+	
+	
+}
+#header_bg{
+	/*background-color: #eeeeee;*/
+    position: fixed;
+    min-height: 55px;
+    width: 100%;
+    /*border: 1px solid #B2B2B2;*/
+	 z-index: 100;
+}
+.header_logo{
+	position: absolute;
+    padding: 5px 10px;
+}
+.header_icon{
+	    margin-left: auto;
+    margin-right: auto;
+    width: 320px !important;
+    height: 22px;
+    text-align: center;
+    background: none;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 4px 2px 10px 2px;
+    border: 1px solid #bbb;
+    border-top: none;
+}
+.header_icon>button {
+    margin-right: 5px;
+    margin-left: 5px;
+    border: none;
+    background: none;
+    width: 24px;
+    height: 24px;
+}
+
+button {
+outline: none;
+border: none;
+}
+button>img:hover {
+cursor: pointer;
+}
+
+button:active {
+outline: none;
+border: none;
+}
+
+
+.pg_txt_cont{
+	    position: relative;
+    top: -8px;
+    margin-left: 10px;
+}
+.pg_txt{
+	background-color: white;
+    text-align: center;
+    width: 55px;
+    height: 14px;
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+	
+}
+.sharelink_txt{
+	text-align: center;
+    width: 55px;
+    height: 14px;
+    background: white;
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+
+#footer_bg{
+	/*background-color: #eeeeee;*/
+    /*border: 1px solid #B2B2B2;*/
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    height: 25px;
+    width: 100%;
+}
+.copywrite{
+	float: right;
+    text-align: right;
+    margin: 7px 17px 0 0;
+    font-size: 11px;
+    color: #666666;
+	
+}
+#book_container{
+	width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	
+	/*does not work in Internet Explorer 9 and earlier versions.*/
+	/* -webkit-transition: width .5s, height .5s;  For Safari 3.1 to 6.0 
+    transition: width .5s, height .5s;*/
+}
+
+#book_canvas{
+	z-index: 1000 !important;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1260px;
+	height: 475px;  /*Height of the content without slider*/
+	border: 0px solid rgba(0,0,0,0.50) 
+}
+
+.sj-book{	
+    width: 1260px;
+    height: 475px; 
+}
+
+#book-zoom{
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-ms-transition: -ms-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+}
+.animated{
+	-webkit-transition:margin-left 0.2s ease-in-out;
+	-moz-transition:margin-left 0.2s ease-in-out;
+	-o-transition:margin-left 0.2s ease-in-out;
+	-ms-transition:margin-left 0.2s ease-in-out;
+	transition:margin-left 0.2s ease-in-out;
+}
+
+.sj-book .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 10px #999;
+	-moz-box-shadow:0 0 10px #999;
+	-ms-box-shadow:0 0 10px #999;
+	-o-box-shadow:0 0 10px #999;
+	box-shadow:0 0 10px #999;
+}
+
+.sj-book .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.sj-book .p1,
+.sj-book .p2,
+.sj-book .p3,
+.sj-book .p5,
+.sj-book .p6{
+	background-color:white;
+	background-image:url(../pics/book-covers.jpg) !important;
+}
+
+.sj-book .p1{
+	background-position:0 0;
+}
+
+.sj-book .p1 .side{
+	width:5px;
+	height:475px;
+	position:absolute;
+	top:0;
+	left:475px;
+
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #bbb), color-stop(0.5,  #ddd), color-stop(1,  #bbb));
+	background-image:-webkit-linear-gradient(left, #bbb, #ddd, #bbb);
+	background-image:-moz-linear-gradient(left, #bbb, #ddd, #bbb);
+	background-image:-ms-linear-gradient(left, #bbb, #ddd, #bbb);
+	background-image:-o-linear-gradient(left, #bbb, #ddd, #bbb);
+	background-image:linear-gradient(left, #bbb, #ddd, #bbb);
+	
+	-webkit-transform:rotateY(-90deg);
+	-moz-transform:rotateY(-90deg);
+	-o-transform:rotateY(-90deg);
+	-ms-transform:rotateY(-90deg);
+	transform:rotateY(-90deg);
+
+	-webkit-transform-origin:top right;
+	-moz-transform-origin:top right;
+	-o-transform-origin:top right;
+	-ms-transform-origin:top right;
+	transform-origin:top right;
+	z-index:100000;
+}
+
+.sj-book-transform div[page="1"] > div, .sj-book-transform div[page="2"] > div{
+	overflow:visible !important;
+}
+
+.sj-book .p2{
+	background-position:-630px 0 !important;
+	/*Sen Because P2 start after P1 so - 630*/
+}
+
+.sj-book .p3{
+	background-position:-2520px 0 !important;
+	/*Page 3 in cover page (end white bg) <page width> * 4 = this position*/
+}
+
+.sj-book .p5{
+	background-position:-1260px 0 !important;
+}
+
+.sj-book .p6{
+	background-position:-1890px 0 !important;
+	/* Last page in cover page <page width> * 3 = this position*/
+}
+
+.sj-book .page-wrapper{
+	-webkit-perspective:2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	perspective: 2000px;
+}
+
+.sj-book .hard{
+	width:630px;
+	height:475px;
+	background-color:white;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	-ms-box-shadow:none;
+	box-shadow:none;
+}
+
+.sj-book .own-size{
+	width:630px;
+	height:475px;
+	background-color:white;
+	overflow:hidden;
+}
+
+.sj-book .even{
+	background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
+	background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+}
+
+.sj-book .odd{
+	background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #fff), color-stop(1, #cacaca));
+	background-image:-webkit-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-moz-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-ms-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-o-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:linear-gradient(right, #fff 95%, #cacaca 100%);
+}
+
+.sj-book .loader{
+	background-image:url(../pics/loader.gif);
+	width:22px;
+	height:22px;
+	position:absolute;
+	top:280px;
+	left:219px;
+}
+
+
+.ie8 .sj-book .even,
+.ie9 .sj-book .even{
+	background-image:url(../pics/gradient-page-left.jpg);
+	background-position:right top;
+	background-repeat:repeat-y;
+}
+
+.ie8 .sj-book .odd,
+.ie9 .sj-book .odd{
+	background-image:url(../pics/gradient-page-right.jpg);
+	background-position:left top;
+	background-repeat:repeat-y;
+}
+
+
+
+/* Popup in pages The Modal (background) */
+#modal_id{
+	display: block;        
+}
+.modal_cls {
+    display: none;
+    z-index: 2000 !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+/* Modal Content height and width are declared in index html javascript*/
+.modal_wrapper_cls {    
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+	z-index: 6;
+}
+.modal_close_cls{
+    font-size: 40px;
+    cursor: pointer;
+    float: right;
+    margin-right: 0px;
+    margin-top: -10px;
+    color: #1791e5;
+}
+.menu_close{
+	
+	font-size: 40px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+	color: #1791e5;
+}
+#modal_image_id{
+	position: absolute;
+	z-index: -1;
+}
+#modal_video_id{
+	position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-top: -3px;
+    margin-left: -4px;
+}
+
+
+#modal_exurl_id:hover{
+	opacity: 0.5 !important;
+}
+
+#modal_exurl2_id:hover{
+	opacity: 0.5 !important;
+}
+#modal_exurl3_id:hover{
+	opacity: 0.5 !important;
+}
+#modal_exurl4_id:hover{
+	opacity: 0.5 !important;
+}
+#modal_exurl5_id:hover{
+	opacity: 0.5 !important;
+}

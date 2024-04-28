@@ -1,0 +1,657 @@
+﻿<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+	<head>
+            <link rel="icon" href="pics/savicon.ico" type="image/gif" sizes="16x16">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>Eaton</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="monitor-signature" content="monitor:player:html5">
+            
+            <link rel="stylesheet" type="text/css" href="css/menuCSS/component.css" />
+            
+            <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+            <script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
+            <script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
+            <script type="text/javascript" src="lib/hash.js"></script>
+         
+			<script type="text/javascript" src="js/sen_scorm.js"></script>
+		<style>
+		.backcover_hotspot_common{
+				opacity: 0;
+				position: absolute;
+				bottom: 35px;
+			cursor: pointer;}
+		.backcover_hotspot_common:hover{
+				opacity: 100;
+				}
+			.backcover_hotspot1{
+			 left: 35px; top: 409px; width: 483px; height: 29px;
+			}
+		</style>
+            
+    </head>
+    <body onLoad="SCOInitialize()" onUnload="SCOFinish()" onbeforeunload="SCOFinish()">		
+   		
+   		<script type="text/javascript" language="JavaScript" name="earlyInit">
+			<!--
+			// Determine whether to attempt to initialize API before loading movie in case there is some ActionScript that fires off before the rest of the HTML page has finished loading.
+			// This is configurable by setting the global boolean (g_bInitializeOnLoad) in the beginning of this file.  Default value is TRUE.
+			if (g_bInitializeOnLoad) {
+				SCOInitialize()
+			}
+			//-->
+		</script>  		
+   		
+		<!--"""""""""""""""""""""""""""""""""""""""""""""""""""""""""Header Navigation-->
+		<div id="header_bg" style="visibility:hidden" >
+
+				<div class="header_logo">
+					<img src="pics/header_icons/logo1.png"/>
+				</div>
+
+				<div class="header_icon">
+
+					<button class="md-trigger" data-modal="menu" id="btnMenu"><img src="pics/header_icons/toc_icon.png"></button>        
+
+					<button id="btnFullscreen"><img src="pics/header_icons/fs_icon.png"></button>     
+
+					<button id="btnFirst"><img src="pics/header_icons/first_icon.png"></button>
+
+					<a class="pg_txt_cont"><input name="pg_txt" class="pg_txt" type="text" size="13" value=" 1 of 10" disabled></a>
+
+					<button id="btnLast"><img src="pics/header_icons/last_icon.png"></button>
+
+					<button onClick="window.open('docs/download.pdf')" id="btnDownload"><img src="pics/header_icons/download_icon.png"></button>
+
+					<button class="md-trigger" data-modal="helpwin" id="btnHelp"><img src="pics/header_icons/help_icon.png"></button>
+
+				</div>
+
+		</div>
+		<!--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Global Next Back-->
+		<div>
+			<div id="global_back" style="position: fixed;cursor: pointer;top: 45%;z-index: 10;"><img src="pics/header_icons/global_back_icon.png"></div>
+
+			<div id="global_next" style="position: fixed;cursor: pointer;right: 0px;top: 45%;z-index: 10;"><img src="pics/header_icons/global_next_icon.png"></div>
+		</div>
+		<!--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Menu Popup-->
+		<div class="md-modal md-effect-8" id="menu">
+			<div class="md-content">
+				<h3>Table of Contents</h3>
+				<button id="close-button" class="md-close" type="button" style="border: none; background: transparent;"><span class="menu_close">×</span></button>
+				<div >
+					 <ul >
+						
+						 <li><a onClick="fnIndex(2)">Innovative Redesign</a></li>
+						 <li><a onClick="fnIndex(3)">Benefits at a glance</a></li>
+						 <li><a onClick="fnIndex(4)">Know it better</a></li>
+						 
+						
+						 
+						 
+
+					 </ul>
+				</div>
+			</div>
+		</div>
+            
+		<!--"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Declaration of Image and Video Popup modal-->
+		<div id="modal_id" class="modal_cls" style="display:none;">
+
+			<div class="modal_wrapper_cls"><!-----------------------Wrapper-->
+
+				<span class="modal_close_cls">&times;</span><!------Close Button-->
+
+				<img id="modal_exurl_id"/><!------------------------Inside Button in Popup-->
+				<img id="modal_exurl2_id"/><!------------------------Inside Button in Popup-->
+				<img id="modal_exurl3_id"/><!------------------------Inside Button in Popup-->
+                <img id="modal_exurl4_id"/><!------------------------Inside Button in Popup-->
+                <img id="modal_exurl5_id"/><!------------------------Inside Button in Popup-->
+				
+				<img alt="" id="modal_image_id" /><!------------------------Image in Popup-->
+				
+				<video id="modal_video_id" preload="metadata" autoplay controls ><!--Video -->
+					<source src="" type="video/mp4">
+					Your browser does not support HTML5 video.
+				</video>					
+
+			 </div>
+
+		 </div>         
+
+		<!--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Help Popup modal--> 
+		<div class="md-modal md-effect-8" id="helpwin" style="width: 760px;height: 240px;overflow:hidden;">
+			<div class="md-content" >
+				<h3>Help</h3>
+				<button class="md-close" type="button" style="left: 715px;border: none;background: transparent;position: absolute;display: block;top: -1px;"><img src="pics/menu_popup/close.jpg" width="37" height="37"></button>
+				<div><img src="help/help.jpg" width="733" height="174"></div>
+
+			</div>
+		</div>
+		
+		<!--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Overlay for Popups--> 
+		<div class="md-overlay"></div>
+
+		<!--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""The BOOK--> 
+		<div id="mybook">
+			<div id="book_container">
+			   <div id="book_canvas">
+					<div id="book-zoom">
+
+						<div class="sj-book">
+							<div depth="5" class="hard">
+								<div class="side"></div>
+							</div>
+							<div depth="5" class="hard front-side">
+								<div class="depth"></div>
+							</div>
+
+							<div class="hard fixed back-side p5">
+								
+							 <div class="depth"></div>
+							</div>
+
+							<div class="hard p6"></div>
+						</div>   
+
+
+					 </div>
+				</div>
+			</div>
+		</div>
+		
+		<!-----------------------------------------------------------------------------JAVASCRIPT STARTS-->
+  			<script type="text/javascript">
+                //"""------------------------------------------------------------------Senthil Script Starts-->
+var sen_scorm_status = "incomplete";				
+function fnScormUpdate()
+				{
+					if ($('.sj-book').turn('page') == $('.sj-book').turn('pages')){						
+							sen_scorm_status = "completed";							
+					}else{
+						if (sen_scorm_status != "completed"){
+							sen_scorm_status = "incomplete";
+						}
+					}	
+					SCOSetValue("cmi.core.lesson_status",sen_scorm_status)	
+					SCOCommit();
+					//alert(sen_scorm_status);
+				}				
+				// Script for Page4/Index - Jump
+				function fnIndex(a){					
+					var jump = Number(a);
+					 $('.sj-book').turn('page',jump); 
+				}
+
+
+				// ---------------------------------------------------------------------Script for Image Popup
+				function fnPopup(p,n){
+					
+					var currpage = Number(p);
+					var currpop = Number(n);
+					var modal = document.getElementById("modal_id");
+					var span = document.getElementsByClassName("modal_close_cls")[0];
+					modal.style.display = "block";
+					var popurl = "pages/page"+currpage+"_assets/page"+currpage+"_popup"+currpop+".png"
+						
+					$("#modal_video_id").css("display","none");
+					$("#modal_image_id").attr("src",popurl);
+					$("#modal_image_id").show();
+					
+					$("#modal_exurl_id").css("display","none");
+					$("#modal_exurl_id").css("position", "absolute");
+					$("#modal_exurl_id").css("opacity", "0");
+					$("#modal_exurl_id").css("cursor", "pointer");
+								
+					
+					$("#modal_exurl2_id").css("display","none");
+					$("#modal_exurl2_id").css("position", "absolute");
+					$("#modal_exurl2_id").css("opacity", "0");
+					$("#modal_exurl2_id").css("cursor", "pointer");
+					
+					$("#modal_exurl3_id").css("display","none");
+					$("#modal_exurl3_id").css("position", "absolute");
+					$("#modal_exurl3_id").css("opacity", "0");
+					$("#modal_exurl3_id").css("cursor", "pointer");
+					
+					$("#modal_exurl4_id").css("display","none");
+					$("#modal_exurl4_id").css("position", "absolute");
+					$("#modal_exurl4_id").css("opacity", "0");
+					$("#modal_exurl4_id").css("cursor", "pointer");
+					
+					$("#modal_exurl5_id").css("display","none");
+					$("#modal_exurl5_id").css("position", "absolute");
+					$("#modal_exurl5_id").css("opacity", "0");
+					$("#modal_exurl5_id").css("cursor", "pointer");
+						
+					
+					//Due to different height and width of some popup Width and Height need to be declared for every popup
+					var elem = document.getElementsByClassName("modal_wrapper_cls")[0];
+					elem.style.border = "1px solid white";
+					
+					
+					if (currpage == 6) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "204px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "264px";
+						}			
+					}
+					
+					if (currpage == 6)
+					{       elem.style.width = "679px";
+							elem.style.height = "264px";
+							
+							
+					        $("#modal_exurl_id").attr("src", "pages/page7_assets/page7_pop1_link1.png");
+                            $("#modal_exurl2_id").attr("src", "pages/page7_assets/page7_pop1_link2.png");		
+							$("#modal_exurl3_id").attr("src", "pages/page7_assets/page7_pop1_link3.png");		
+							$("#modal_exurl4_id").attr("src", "pages/page7_assets/page7_pop1_link4.png");	
+							$("#modal_exurl5_id").attr("src", "pages/page7_assets/page7_pop1_link5.png");		
+							
+				
+						
+						if (currpop == 1) {
+							
+							
+							
+							$("#modal_exurl_id").css("display", "block");
+							$("#modal_exurl_id").css("top", "55px");
+							$("#modal_exurl_id").css("left", "15px");
+							$("#modal_exurl_id").css("width", "123px");
+							$("#modal_exurl_id").css("height", "16px");
+							
+							$("#modal_exurl_id").attr("onclick", "window.open('https://honeywellprod.sharepoint.com/:b:/r/teams/americashsef/People/Americas%20HSEF%20Career%20Management%20Guide%20Tools/Aero%20Americas%20HSEF%20Director%20Onboarding%20Guide.pdf?csf=1&e=safizX','_blank')");
+
+							
+							
+							$("#modal_exurl2_id").css("display", "block");
+							$("#modal_exurl2_id").css("top", "74px");
+							$("#modal_exurl2_id").css("left", "15px");
+							$("#modal_exurl2_id").css("width", "144px");
+							$("#modal_exurl2_id").css("height", "16px");
+							
+							$("#modal_exurl2_id").attr("onclick", "window.open('https://honeywellprod.sharepoint.com/:b:/r/teams/americashsef/People/Americas%20HSEF%20Career%20Management%20Guide%20Tools/Aero%20Americas%20Site%20HSEF%20Leader%20Onboarding%20Guide.pdf?csf=1&e=wkA8JK','_blank')");
+							
+							$("#modal_exurl3_id").css("display", "block");
+							$("#modal_exurl3_id").css("top", "94px");
+							$("#modal_exurl3_id").css("left", "15px");
+							$("#modal_exurl3_id").css("width", "134px");
+							$("#modal_exurl3_id").css("height", "16px");
+							
+							$("#modal_exurl3_id").attr("onclick", "window.open('https://honeywellprod.sharepoint.com/:b:/r/teams/americashsef/People/Americas%20HSEF%20Career%20Management%20Guide%20Tools/Aero%20Americas%20HSE%20Engineer%20Onboarding%20Guide.pdf?csf=1&e=zUb1DA','_blank')");
+							
+							$("#modal_exurl4_id").css("display", "block");
+							$("#modal_exurl4_id").css("top", "115px");
+							$("#modal_exurl4_id").css("left", "15px");
+							$("#modal_exurl4_id").css("width", "160px");
+							$("#modal_exurl4_id").css("height", "16px");
+							
+							$("#modal_exurl4_id").attr("onclick", "window.open('https://honeywellprod.sharepoint.com/:b:/r/teams/americashsef/People/Americas%20HSEF%20Career%20Management%20Guide%20Tools/Aero%20Americas%20Facilities%20Engineer%20Onboarding%20Guide.pdf?csf=1&e=HJNOto','_blank')");
+							
+							$("#modal_exurl5_id").css("display", "block");
+							$("#modal_exurl5_id").css("top", "135px");
+							$("#modal_exurl5_id").css("left", "15px");
+							$("#modal_exurl5_id").css("width", "155px");
+							$("#modal_exurl5_id").css("height", "16px");
+							
+							$("#modal_exurl5_id").attr("onclick", "window.open('https://honeywellprod.sharepoint.com/:b:/r/teams/americashsef/People/Americas%20HSEF%20Career%20Management%20Guide%20Tools/Aero%20Americas%20Facilities%20Supervisor%20Onboarding%20Guide.pdf?csf=1&e=BLduG7','_blank')");
+						}
+						
+					}
+				
+					
+					if (currpage == 8) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						
+					}
+					if (currpage == 10) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+					}
+					if (currpage == 11 ) {
+							elem.style.width = "1257px";
+							elem.style.height = "475px";
+						}
+					
+						if (currpage == 12) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+						if (currpage == 6) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+						if (currpage == 16) {
+						if (currpop == 1) {
+							elem.style.width = "695px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "695px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+					if (currpage == 7) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+						if (currpage == 20) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+						if (currpage == 22) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "290px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+					
+						if (currpage == 24) {
+						if (currpop == 1) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+						if (currpop == 2) {
+							elem.style.width = "679px";
+							elem.style.height = "257px";
+						}
+										
+					}
+					
+						
+					span.onclick = function() {
+						$("#modal_image_id").attr("src","");
+						modal.style.display = "none";
+					}				
+					window.onclick = function(event) {						
+						if (event.target == modal) {
+							$("#modal_image_id").attr("src","");
+							modal.style.display = "none";
+						}
+					}
+
+				}
+				// ---------------------------------------------------------------------Script for Video Popup
+				function fnPopupVideo(p,n){
+					
+					var currpage = Number(p);
+					var currpop = Number(n);
+					var modal = document.getElementById("modal_id");
+					var span = document.getElementsByClassName("modal_close_cls")[0];
+					modal.style.display = "block";
+					var popvidurl = "pages/page"+currpage+"_assets/video"+currpop+".mp4"
+					
+					$("#modal_image_id").css("display", "none");
+					$("#modal_video_id").attr("src",popvidurl);
+					$("#modal_video_id").show();
+				 	$("#modal_exurl_id").css("display","none");
+					$("#modal_exurl2_id").css("display","none");
+					$("#modal_exurl3_id").css("display","none");
+					$("#modal_exurl4_id").css("display","none");
+					$("#modal_exurl5_id").css("display","none");
+					
+					span.onclick = function() {
+						$("#modal_video_id").attr("src","");
+						modal.style.display = "none";
+					}
+				
+					//Due to different height and width of some popup Width and Height need to be declared for every popup	
+					var elem = document.getElementsByClassName("modal_wrapper_cls")[0];
+					elem.style.border = "1px solid white";
+					if (currpage == 15 || currpage == 6){					
+						
+						elem.style.width = "600px";			
+						elem.style.height = "352px";
+						
+					}
+					window.onclick = function(event) {
+						if (event.target == modal) {
+							$("#modal_video_id").attr("src","");
+							modal.style.display = "none";
+						}
+					}
+				}
+				
+
+				var polyfilter_scriptpath = '/js/menuJS/';
+				$('.sj-book').data().zoomIn = false;
+					
+				//""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Senthil Script Ends
+				function loadApp() 
+				{
+					//alert(window.innerHeight)
+					var flipbook = $('.sj-book');
+					// Check if the CSS was already loaded
+					if (flipbook.width()==0 || flipbook.height()==0) 
+					{
+						setTimeout(loadApp, 10);
+						return;
+					}
+				
+					// URIs
+					Hash.on('^page\/([0-9]*)$', 
+					{
+						yep: function(path, parts) 
+						{
+							var page = parts[1];
+							
+							if (page!==undefined) 
+							{
+								
+								if ($('.sj-book').turn('is'))
+									$('.sj-book').turn('page', page);
+							}
+				 
+						},
+						nop: function(path) 
+						{             
+							
+						}
+					});
+				
+					// Arrows key on keyboard
+					$(document).keydown(function(e)
+					{
+						var previous = 37, next = 39;
+						switch (e.keyCode) {
+							case previous:
+							   $('.sj-book').turn('previous');
+							break;
+							case next:
+								$('.sj-book').turn('next');
+							break;
+						}
+					});
+							
+					// Flipbook
+					flipbook.bind(($.isTouch) ? 'touchend' : 'click', zoomHandle);
+					flipbook.turn({
+						elevation: 50,
+						acceleration: !isChrome(),
+						autoCenter: true,
+						gradients: true,
+						duration: 1000,
+						pages: 6,
+						when: {
+							turning: function(e, page, view) 
+							{
+								//audio.play();
+								fnPagination();
+								fnCloseModel();
+													
+								var book = $(this),
+									currentPage = book.turn('page'),
+									pages = book.turn('pages');
+							    if (currentPage>3 && currentPage<pages-3) 
+							    {
+									if (page==1) 
+									{
+										book.turn('page', 2).turn('stop').turn('page', page);
+										e.preventDefault();
+										return;
+									} else if (page==pages) {
+										book.turn('page', pages-1).turn('stop').turn('page', page);
+										e.preventDefault();
+										return;
+									}
+								 } else if (page>3 && page<pages-3) {
+									if (currentPage==1) 
+									{
+										book.turn('page', 2).turn('stop').turn('page', page);
+										e.preventDefault();
+										return;
+									} else if (currentPage==pages) {
+										book.turn('page', pages-1).turn('stop').turn('page', page);
+										e.preventDefault();
+										return;
+									}
+									
+								 }
+								 updateDepth(book, page);
+								 if (page>=2)
+									$('.sj-book .p2').addClass('fixed');
+								 else
+									$('.sj-book .p2').removeClass('fixed');
+				
+								 if (page<book.turn('pages'))
+									$('.sj-book .p5').addClass('fixed');
+								 else
+									$('.sj-book .p5').removeClass('fixed');
+				
+								 Hash.go('page/'+page).update();
+							},
+				
+							turned: function(e, page, view) 
+							{
+								fnScormUpdate();
+								fnPagination();				
+								
+								
+								var book = $(this);
+								if (page==2 || page==3) 
+								{
+									book.turn('peel', 'br');
+								}
+								updateDepth(book);
+								book.turn('center');
+							},
+				
+							start: function(e, pageObj) 
+							{
+								fnPagination();
+								moveBar(true);
+							},
+				
+							end: function(e, pageObj) 
+							{
+								fnScormUpdate();
+								fnPagination();
+								var book = $(this);
+								updateDepth(book);
+							},
+							
+							missing: function (e, pages) 
+							{
+								fnPagination();
+								for (var i = 0; i < pages.length; i++) 
+								{
+									addPage(pages[i], $(this));
+								}
+							}
+						}
+					});
+					flipbook.addClass('animated');
+					
+					// Show canvas
+					$('#canvas').css({visibility: ''});
+					$('#header_bg').css({visibility: ''});
+					$('#global_back').css({visibility: ''});
+					$('#global_next').css({visibility: ''});
+					$('#footer_bg').css({visibility: ''});
+					$('.copywrite').css({visibility: ''});
+				}
+            
+				// Hide canvas
+				$('#canvas').css({visibility: 'hidden'});
+				$('#header_bg').css({visibility: 'hidden'});
+				$('#global_back').css({visibility: 'hidden'});
+				$('#global_next').css({visibility: 'hidden'});
+				$('#footer_bg').css({visibility: 'hidden'});
+				$('.copywrite').css({visibility: 'hidden'});
+            			
+				yepnope({
+					test : Modernizr.csstransforms,
+					yep: ['lib/turn.js', 'lib/zoom.js'],
+					nope: ['lib/turn.html4.js', 'css/steve-jobs-html4.css'],
+					both: ['js/menuJS/modalEffects.js','js/menuJS/classie.js','js/topnav.js', 'js/index.js', 'css/index.css'],
+					complete: loadApp
+				});
+            </script>
+        	
+    
+    </body>
+</html>
